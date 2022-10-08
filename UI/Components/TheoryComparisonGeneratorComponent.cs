@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using LiveSplit.Model;
-using LiveSplit.Model.Comparisons;
 using LiveSplit.TheoryComparisonGenerator.Comparisons;
 
 namespace LiveSplit.UI.Components
@@ -102,8 +100,7 @@ namespace LiveSplit.UI.Components
 
         private void settings_OnChangeComparison(object sender, ComparisonSettingsChangeEventArgs e)
         {
-            var generator = new TheoryTimeComparisonGenerator(CurrentState.Run, e.NewData);
-            _updateComparisonInPlace(CurrentState, e.PrevData, e.NewData, generator);
+            _updateComparisonInPlace(CurrentState, e.PrevData, e.NewData, _getGenerator(CurrentState.Run, e.NewData));
         }
 
         private void settings_OnChangePBComparison(object sender, PBComparisonSettingsChangeEventArgs e)
@@ -117,7 +114,7 @@ namespace LiveSplit.UI.Components
             _updateAllComparisons(CurrentState);
         }
 
-        private void _updateComparisonInPlace(LiveSplitState state, ComparisonData prevData, ComparisonData newData, TheoryTimeComparisonGenerator generator)
+        private void _updateComparisonInPlace(LiveSplitState state, ComparisonData prevData, ComparisonData newData, ITheoryComparisonGenerator generator)
         {
             var prevName = prevData.FormattedName;
             var newSelectedName = prevName;
@@ -148,8 +145,7 @@ namespace LiveSplit.UI.Components
 
             foreach (var comparisonSetting in Settings.ComparisonsList)
             {
-                var comparison = new TheoryTimeComparisonGenerator(run, comparisonSetting.Data);
-                _addComparisonToRun(state, comparison, -1);
+                _addComparisonToRun(state, _getGenerator(run, comparisonSetting.Data), -1);
             }
 
             _updateSelectedComparison(state, state.CurrentComparison);
@@ -189,7 +185,7 @@ namespace LiveSplit.UI.Components
             return -1;
         }
 
-        private bool _addComparisonToRun(LiveSplitState state, TheoryTimeComparisonGenerator generator, int idx)
+        private bool _addComparisonToRun(LiveSplitState state, ITheoryComparisonGenerator generator, int idx)
         {
             if (!generator.ShouldAddToSplits(Settings.SplitsName))
                 return false;
@@ -210,6 +206,14 @@ namespace LiveSplit.UI.Components
             }
 
             return true;
+        }
+
+        private ITheoryComparisonGenerator _getGenerator(IRun run, ComparisonData data)
+        {
+            if (data.Balanced)
+                return new BalancedTheoryTimeComparisonGenerator(run, data);
+            else
+                return new TheoryTimeComparisonGenerator(run, data);
         }
     }
 }

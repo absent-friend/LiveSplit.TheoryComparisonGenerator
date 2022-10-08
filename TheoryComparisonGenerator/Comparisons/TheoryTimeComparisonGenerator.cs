@@ -1,11 +1,10 @@
 ﻿using System;
 using LiveSplit.Model;
-using LiveSplit.Model.Comparisons;
 using LiveSplit.Options;
 
 namespace LiveSplit.TheoryComparisonGenerator.Comparisons
 {
-	public class TheoryTimeComparisonGenerator : IComparisonGenerator
+	public class TheoryTimeComparisonGenerator : ITheoryComparisonGenerator
 	{
 		public TheoryTimeComparisonGenerator(IRun run, ComparisonData data)
 		{

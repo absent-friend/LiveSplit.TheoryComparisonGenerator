@@ -7,16 +7,17 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
 {
     public class ComparisonData
     {
-        public ComparisonData(string splitName, string secondaryName, string target)
-            : this(splitName, secondaryName, makeTimeFromString(target))
+        public ComparisonData(string splitName, string secondaryName, string target, string balanced)
+            : this(splitName, secondaryName, makeTimeFromString(target), bool.Parse(balanced))
         {
         }
 
-        public ComparisonData(string splitName, string secondaryName, Time target)
+        public ComparisonData(string splitName, string secondaryName, Time target, bool balanced)
         {
             SplitsName = splitName;
             SecondaryName = secondaryName;
             TargetT = target;
+            Balanced = balanced;
         }
 
         public ComparisonData(ComparisonData other)
@@ -24,6 +25,7 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
             SplitsName = other.SplitsName;
             SecondaryName = other.SecondaryName;
             TargetT = other.TargetT;
+            Balanced = other.Balanced;
         }
 
         public string Target
@@ -38,6 +40,8 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
 
         public string SecondaryName { get; set; }
 
+        public bool Balanced { get; set; }
+
         public virtual string FormattedName => formatName();
 
         public static ComparisonData FromXml(XmlNode node)
@@ -46,7 +50,8 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
             return new ComparisonData(
                 element["SplitsName"].InnerText,
                 element["SecondaryName"].InnerText,
-                element["Target"].InnerText);
+                element["Target"].InnerText,
+                element["Balanced"].InnerText);
         }
 
         public int CreateElement(XmlDocument document, XmlElement element)
@@ -54,7 +59,8 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
             return
                 SettingsHelper.CreateSetting(document, element, "SplitsName", SplitsName) ^
                 SettingsHelper.CreateSetting(document, element, "SecondaryName", SecondaryName) ^
-                SettingsHelper.CreateSetting(document, element, "Target", Target);
+                SettingsHelper.CreateSetting(document, element, "Target", Target) ^
+                SettingsHelper.CreateSetting(document, element, "Balanced", true);
         }
 
         private string formatName()
@@ -102,7 +108,7 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
         public static PBComparisonData Default = new PBComparisonData(true, "");
 
         public PBComparisonData(bool enabled, string secondaryName)
-            : base("", secondaryName, Time.Zero)
+            : base("", secondaryName, Time.Zero, false)
         {
             Enabled = enabled;
         }

@@ -1,13 +1,7 @@
 ﻿using LiveSplit.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LiveSplit.TheoryComparisonGenerator.Comparisons;
 
@@ -30,7 +24,7 @@ namespace LiveSplit.UI.Components
         public ComparisonSettings(LiveSplitState State, string splits_name, IList<ComparisonSettings> comparisonSettings)
         {
             InitializeComponent();
-            Data = new ComparisonData(splits_name, "", "");
+            Data = new ComparisonData(splits_name, "", Time.Zero, false);
             CurrentState = State;
             ComparisonsList = comparisonSettings;
         }
@@ -69,6 +63,7 @@ namespace LiveSplit.UI.Components
             txtName.Text = Data.SplitsName;
             txtAltName.Text = Data.SecondaryName;
             txtTargetTime.Text = Data.Target;
+            checkBalanced.Checked = Data.Balanced;
         }
 
         public void SelectControl()
@@ -104,6 +99,18 @@ namespace LiveSplit.UI.Components
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
             MovedDown?.Invoke(this, null);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBalanced_CheckedChanged(object sender, EventArgs e)
+        {
+            var prevData = Data;
+            Data = new ComparisonData(Data) { Balanced = checkBalanced.Checked };
+            OnChange?.Invoke(this, new ComparisonSettingsChangeEventArgs(prevData, Data));
         }
     }
 
