@@ -100,9 +100,17 @@ namespace LiveSplit.UI.Components
             return Settings.GetSettingsHashCode();
         }
 
+        private ITheoryComparisonGenerator _getGenerator(IRun run, ComparisonData data)
+        {
+            if (data.Balanced)
+                return new BalancedTheoryTimeComparisonGenerator(run, data);
+            else
+                return new TheoryTimeComparisonGenerator(run, data);
+        }
+
         private void settings_OnChangeComparison(object sender, ComparisonSettingsChangeEventArgs e)
         {
-            var generator = new TheoryTimeComparisonGenerator(CurrentState.Run, e.NewData);
+            var generator = _getGenerator(CurrentState.Run, e.NewData);
             _updateComparisonInPlace(CurrentState, e.PrevData, e.NewData, generator);
         }
 
@@ -117,7 +125,7 @@ namespace LiveSplit.UI.Components
             _updateAllComparisons(CurrentState);
         }
 
-        private void _updateComparisonInPlace(LiveSplitState state, ComparisonData prevData, ComparisonData newData, TheoryTimeComparisonGenerator generator)
+        private void _updateComparisonInPlace(LiveSplitState state, ComparisonData prevData, ComparisonData newData, ITheoryComparisonGenerator generator)
         {
             var prevName = prevData.FormattedName;
             var newSelectedName = prevName;
@@ -189,7 +197,7 @@ namespace LiveSplit.UI.Components
             return -1;
         }
 
-        private bool _addComparisonToRun(LiveSplitState state, TheoryTimeComparisonGenerator generator, int idx)
+        private bool _addComparisonToRun(LiveSplitState state, ITheoryComparisonGenerator generator, int idx)
         {
             if (!generator.ShouldAddToSplits(Settings.SplitsName))
                 return false;

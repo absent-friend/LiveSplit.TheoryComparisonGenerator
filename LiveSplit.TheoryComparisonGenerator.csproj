@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LiveSplit</RootNamespace>
     <AssemblyName>LiveSplit.TheoryComparisonGenerator</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheoryComparisonGenerator\Comparisons\BalancedTheoryTimeComparisonGenerator.cs" />
     <Compile Include="TheoryComparisonGenerator\Comparisons\ComparisonData.cs" />
+    <Compile Include="TheoryComparisonGenerator\Comparisons\ITheoryComparisonGenerator.cs" />
     <Compile Include="TheoryComparisonGenerator\Comparisons\TheoryTimeComparisonGenerator.cs" />
     <Compile Include="TheoryComparisonGenerator\Comparisons\TheoryPBComparisonGenerator.cs" />
     <Compile Include="UI\Components\ComparisonSettings.cs">

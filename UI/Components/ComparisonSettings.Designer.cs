@@ -42,6 +42,7 @@ namespace LiveSplit.UI.Components
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBalanced = new System.Windows.Forms.CheckBox();
             this.groupComparison.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,8 +52,10 @@ namespace LiveSplit.UI.Components
             this.groupComparison.Controls.Add(this.tableLayoutPanel1);
             this.groupComparison.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupComparison.Location = new System.Drawing.Point(0, 0);
+            this.groupComparison.Margin = new System.Windows.Forms.Padding(4);
             this.groupComparison.Name = "groupComparison";
-            this.groupComparison.Size = new System.Drawing.Size(427, 165);
+            this.groupComparison.Padding = new System.Windows.Forms.Padding(4);
+            this.groupComparison.Size = new System.Drawing.Size(569, 203);
             this.groupComparison.TabIndex = 0;
             this.groupComparison.TabStop = false;
             this.groupComparison.Text = "Comparison";
@@ -62,9 +65,9 @@ namespace LiveSplit.UI.Components
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.67816F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.32184F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtAltName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -76,24 +79,27 @@ namespace LiveSplit.UI.Components
             this.tableLayoutPanel1.Controls.Add(this.btnMoveUp, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnMoveDown, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.checkBalanced, 4, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 19);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.28767F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.0274F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(421, 146);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(561, 180);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 76);
+            this.label3.Location = new System.Drawing.Point(4, 93);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 26);
+            this.label3.Size = new System.Drawing.Size(71, 34);
             this.label3.TabIndex = 47;
             this.label3.Text = "Goal Time:";
             // 
@@ -101,9 +107,10 @@ namespace LiveSplit.UI.Components
             // 
             this.txtAltName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtAltName, 4);
-            this.txtAltName.Location = new System.Drawing.Point(63, 43);
+            this.txtAltName.Location = new System.Drawing.Point(83, 55);
+            this.txtAltName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAltName.Name = "txtAltName";
-            this.txtAltName.Size = new System.Drawing.Size(355, 20);
+            this.txtAltName.Size = new System.Drawing.Size(474, 22);
             this.txtAltName.TabIndex = 46;
             this.txtAltName.TextChanged += new System.EventHandler(this.txtAltName_TextChanged);
             // 
@@ -111,9 +118,10 @@ namespace LiveSplit.UI.Components
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 36);
+            this.label2.Location = new System.Drawing.Point(4, 45);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 34);
+            this.label2.Size = new System.Drawing.Size(71, 42);
             this.label2.TabIndex = 45;
             this.label2.Text = "Display Name:\r\n(optional)";
             // 
@@ -121,9 +129,10 @@ namespace LiveSplit.UI.Components
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(4, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(71, 34);
             this.label1.TabIndex = 43;
             this.label1.Text = "Splits File:";
             // 
@@ -131,18 +140,20 @@ namespace LiveSplit.UI.Components
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtName, 4);
-            this.txtName.Location = new System.Drawing.Point(63, 8);
+            this.txtName.Location = new System.Drawing.Point(83, 11);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(355, 20);
+            this.txtName.Size = new System.Drawing.Size(474, 22);
             this.txtName.TabIndex = 44;
             // 
             // btnRemoveColumn
             // 
             this.btnRemoveColumn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveColumn.Location = new System.Drawing.Point(361, 115);
+            this.btnRemoveColumn.Location = new System.Drawing.Point(467, 143);
+            this.btnRemoveColumn.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveColumn.Name = "btnRemoveColumn";
-            this.btnRemoveColumn.Size = new System.Drawing.Size(57, 23);
+            this.btnRemoveColumn.Size = new System.Drawing.Size(76, 28);
             this.btnRemoveColumn.TabIndex = 59;
             this.btnRemoveColumn.Text = "Remove";
             this.btnRemoveColumn.UseVisualStyleBackColor = true;
@@ -151,10 +162,11 @@ namespace LiveSplit.UI.Components
             // txtTargetTime
             // 
             this.txtTargetTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTargetTime.Location = new System.Drawing.Point(63, 79);
+            this.txtTargetTime.Location = new System.Drawing.Point(83, 99);
+            this.txtTargetTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtTargetTime.Mask = "00:00:00.000";
             this.txtTargetTime.Name = "txtTargetTime";
-            this.txtTargetTime.Size = new System.Drawing.Size(72, 20);
+            this.txtTargetTime.Size = new System.Drawing.Size(94, 22);
             this.txtTargetTime.TabIndex = 47;
             this.txtTargetTime.Text = "000000000";
             this.txtTargetTime.TextChanged += new System.EventHandler(this.txtTargetTime_TextChanged);
@@ -162,9 +174,10 @@ namespace LiveSplit.UI.Components
             // btnAttachToSplits
             // 
             this.btnAttachToSplits.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAttachToSplits.Location = new System.Drawing.Point(222, 115);
+            this.btnAttachToSplits.Location = new System.Drawing.Point(274, 143);
+            this.btnAttachToSplits.Margin = new System.Windows.Forms.Padding(4);
             this.btnAttachToSplits.Name = "btnAttachToSplits";
-            this.btnAttachToSplits.Size = new System.Drawing.Size(131, 23);
+            this.btnAttachToSplits.Size = new System.Drawing.Size(171, 28);
             this.btnAttachToSplits.TabIndex = 58;
             this.btnAttachToSplits.Text = "Attach to Current Splits";
             this.btnAttachToSplits.UseVisualStyleBackColor = true;
@@ -173,9 +186,10 @@ namespace LiveSplit.UI.Components
             // btnMoveUp
             // 
             this.btnMoveUp.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMoveUp.Location = new System.Drawing.Point(85, 115);
+            this.btnMoveUp.Location = new System.Drawing.Point(110, 143);
+            this.btnMoveUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnMoveUp.Name = "btnMoveUp";
-            this.btnMoveUp.Size = new System.Drawing.Size(50, 23);
+            this.btnMoveUp.Size = new System.Drawing.Size(67, 28);
             this.btnMoveUp.TabIndex = 56;
             this.btnMoveUp.Text = "Up";
             this.btnMoveUp.UseVisualStyleBackColor = true;
@@ -184,9 +198,10 @@ namespace LiveSplit.UI.Components
             // btnMoveDown
             // 
             this.btnMoveDown.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMoveDown.Location = new System.Drawing.Point(156, 115);
+            this.btnMoveDown.Location = new System.Drawing.Point(186, 143);
+            this.btnMoveDown.Margin = new System.Windows.Forms.Padding(4);
             this.btnMoveDown.Name = "btnMoveDown";
-            this.btnMoveDown.Size = new System.Drawing.Size(60, 23);
+            this.btnMoveDown.Size = new System.Drawing.Size(80, 28);
             this.btnMoveDown.TabIndex = 57;
             this.btnMoveDown.Text = "Down";
             this.btnMoveDown.UseVisualStyleBackColor = true;
@@ -197,20 +212,34 @@ namespace LiveSplit.UI.Components
             this.label4.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(141, 70);
+            this.label4.Location = new System.Drawing.Point(185, 87);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 38);
+            this.label4.Size = new System.Drawing.Size(260, 47);
             this.label4.TabIndex = 58;
             this.label4.Text = "(hh:mm:ss.ms)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // checkBalanced
+            // 
+            this.checkBalanced.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBalanced.AutoSize = true;
+            this.checkBalanced.Location = new System.Drawing.Point(460, 100);
+            this.checkBalanced.Name = "checkBalanced";
+            this.checkBalanced.Size = new System.Drawing.Size(89, 21);
+            this.checkBalanced.TabIndex = 60;
+            this.checkBalanced.Text = "Balanced";
+            this.checkBalanced.UseVisualStyleBackColor = true;
+            this.checkBalanced.CheckedChanged += new System.EventHandler(this.checkBalanced_CheckedChanged);
+            // 
             // ComparisonSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupComparison);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ComparisonSettings";
-            this.Size = new System.Drawing.Size(427, 165);
+            this.Size = new System.Drawing.Size(569, 203);
             this.Load += new System.EventHandler(this.ComparisonSettings_Load);
             this.groupComparison.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -234,5 +263,6 @@ namespace LiveSplit.UI.Components
         private System.Windows.Forms.Button btnMoveUp;
         private System.Windows.Forms.Button btnMoveDown;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBalanced;
     }
 }
