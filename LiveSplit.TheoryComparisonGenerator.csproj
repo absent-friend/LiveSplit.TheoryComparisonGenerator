@@ -32,18 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiveSplit.Core">
-      <HintPath>..\..\LiveSplit\LiveSplit\bin\Release\LiveSplit.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UpdateManager">
-      <HintPath>..\..\LiveSplit\LiveSplit\bin\Release\UpdateManager.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +73,16 @@
     <EmbeddedResource Include="UI\Components\TheoryComparisonGeneratorSettings.resx">
       <DependentUpon>TheoryComparisonGeneratorSettings.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LiveSplit\src\LiveSplit.Core\LiveSplit.Core.csproj">
+      <Project>{a4b2a7e9-eb99-d8d4-73c1-bf9ff8376b7d}</Project>
+      <Name>LiveSplit.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="LiveSplit\src\UpdateManager\UpdateManager.csproj">
+      <Project>{b5de6d5e-cc2f-adae-a13f-671082dcc7e5}</Project>
+      <Name>UpdateManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
