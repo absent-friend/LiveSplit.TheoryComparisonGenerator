@@ -51,7 +51,7 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
                 element["SplitsName"].InnerText,
                 element["SecondaryName"].InnerText,
                 element["Target"].InnerText,
-                element["Balanced"].InnerText);
+                element["Balanced"]?.InnerText ?? "false");
         }
 
         public int CreateElement(XmlDocument document, XmlElement element)
