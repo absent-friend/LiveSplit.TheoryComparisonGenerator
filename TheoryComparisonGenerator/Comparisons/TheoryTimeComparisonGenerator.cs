@@ -31,7 +31,7 @@ namespace LiveSplit.TheoryComparisonGenerator.Comparisons
 			var theorySplitTime = TimeSpan.Zero;
 
 			// For this comparison, we need a full sum of best available to base calculation on.
-			var sob = SumOfBest.CalculateSumOfBest(Run, method: method);
+			var sob = SumOfBest.CalculateSumOfBest(Run, simpleCalculation: true, method: method);
 			if (sob == null) return;
 
 			// Target time must also be available.
